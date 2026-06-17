@@ -116,8 +116,8 @@ var disqus_config = function () {
 
 (function() {
     var d = document, s = d.createElement('script');
-    // IMPORTANTE: Lembra-te de substituir 'SEU-SHORTNAME-AQUI' pelo shortname do teu painel do Disqus
-    s.src = 'https://SEU-SHORTNAME-AQUI.disqus.com/embed.js'; 
+    // CORRIGIDO: Seu shortname 'xbox-site' inserido com sucesso!
+    s.src = 'https://xbox-site.disqus.com/embed.js'; 
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();

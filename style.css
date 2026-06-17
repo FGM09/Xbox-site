@@ -257,12 +257,567 @@ header {
     font-weight: bold;
 }
 
+/* --- ESTILO COMPLETO DO CHATBOT --- */
+#xbox-chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3000;
+}
+
+.chat-launcher {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.chat-launcher:hover {
+    transform: scale(1.05);
+}
+
+:root {
+    --xbox-green: #107c11;
+    --xbox-dark: #111111;
+    --xbox-light: #202020;
+    --text-color: #ffffff;
+    --gray: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--xbox-dark);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Barra de Progresso/Status */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(16, 124, 17, 0.9);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.score-board {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.score-board span {
+    background: rgba(0,0,0,0.4);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Container Principal da Linha do Tempo */
+.timeline {
+    margin-top: 80px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Linha vertical central */
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: var(--xbox-green);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Eras / Seções */
+.era-card {
+    background: var(--xbox-light);
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 40px 0;
+    width: 45%;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+.era-card.active {
+    opacity: 1;
+    transform: scale(1);
+    border-color: var(--xbox-green);
+    box-shadow: 0 0 20px rgba(16, 124, 17, 0.4);
+}
+
+/* Alternância dos lados da linha do tempo */
+.era-card:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.era-card:nth-child(even) {
+    align-self: flex-end;
+}
+
+/* Indicador de bola na linha do tempo */
+.era-card::after {
+    content: '🎮';
+    position: absolute;
+    top: 25px;
+    background: var(--xbox-dark);
+    border: 3px solid var(--xbox-green);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 3;
+}
+
+.era-card:nth-child(odd)::after {
+    right: -12.5%;
+}
+
+.era-card:nth-child(even)::after {
+    left: -12.5%;
+}
+
+.era-year {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--xbox-green);
+    margin-bottom: 10px;
+}
+
+.era-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.era-details {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.era-card.explored .era-details {
+    display: block;
+}
+
+/* Mini-quiz dentro dos cards */
+.quiz-zone {
+    margin-top: 15px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.quiz-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.quiz-btn:hover:not(:disabled) {
+    background: #444;
+}
+
+.quiz-btn.correct {
+    background: var(--xbox-green) !important;
+}
+
+.quiz-btn.wrong {
+    background: #b30000 !important;
+}
+
+/* Estilização da Seção do Fórum */
+#forum-section {
+    width: 80%;
+    max-width: 800px;
+    margin: 60px auto;
+    background: var(--xbox-light);
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#forum-section h2 {
+    font-size: 1.8rem;
+    color: var(--xbox-green);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--xbox-green);
+    padding-bottom: 10px;
+}
+
+/* Pop-up de Conquista Bloqueada (Estilo Xbox) */
+.achievement-toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    border: 2px solid var(--xbox-green);
+    border-radius: 30px;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2000;
+}
+
+.achievement-toast.show {
+    bottom: 40px;
+}
+
+.achievement-icon {
+    background: var(--xbox-green);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px var(--xbox-green);
+}
+
+.achievement-text-1 {
+    font-size: 0.8rem;
+    color: var(--xbox-green);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.achievement-text-2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* --- ESTILO COMPLETO DO CHATBOT E AVATAR XBOX --- */
+#xbox-chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3000;
+}
+
+.chat-launcher {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.chat-launcher:hover {
+    transform: scale(1.05);
+}
+
+/* Proporção para corpo inteiro */
+.avatar-mii.full-body {
+    width: 90px;
+    height: 145px;
+    position: relative;
+    overflow: visible;
+    animation: flutuar 3.5s ease-in-out infinite;
+}
+
+/* Cabeça com sombreamento 3D */
+.cabeca {
+    width: 44px;
+    height: 44px;
+    background: radial-gradient(circle at 50% 40%, #ffebd3 0%, #fcd2a1 100%);
+    border-radius: 50% 50% 48% 48%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid #000;
+    z-index: 5;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+/* Cabelo Castanho Escuro com Degradê */
+.cabelo {
+    position: absolute;
+    top: -2px;
+    left: -5%;
+    width: 110%;
+    height: 19px;
+    background: linear-gradient(135deg, #3d2a15 0%, #211407 100%);
+    border-radius: 50% 50% 20% 20%;
+    z-index: 6;
+}
+
+.cabelo::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 14px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 5px solid #211407;
+}
+
+/* Olhos Castanhos Escuros com Reflexo Tridimensional */
+.olho-esquerdo, .olho-direito {
+    position: absolute;
+    top: 19px;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at 35% 35%, #3d2612 0%, #170d04 100%);
+    border-radius: 50%;
+    border: 1px solid #000;
+    animation: piscar 4s infinite;
+}
+
+.olho-esquerdo { left: 9px; }
+.olho-direito { right: 9px; }
+
+.olho-esquerdo::before, .olho-direito::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 2px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+/* Boca Sorridente */
+.boca {
+    position: absolute;
+    bottom: 8px;
+    left: 15px;
+    width: 14px;
+    height: 6px;
+    border-bottom: 2px solid #634121;
+    border-radius: 0 0 7px 7px;
+}
+
+/* Corpo / Tronco */
+.tronco {
+    position: absolute;
+    top: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 50px;
+    z-index: 3;
+}
+
+/* Camisola Verde Oficial Xbox */
+.camisa {
+    width: 100%;
+    height: 100%;
+    background-color: #107c11;
+    border-radius: 6px 6px 4px 4px;
+    border: 1.5px solid #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Detalhe do Vetor do Logótipo Xbox na Roupa */
+.logo-xbox-camisa {
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.logo-xbox-camisa::before {
+    content: 'X';
+    position: absolute;
+    font-size: 10px;
+    font-weight: 900;
+    color: #107c11;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(1.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Braços */
+.braço-esquerdo, .braço-direito {
+    position: absolute;
+    top: 2px;
+    width: 8px;
+    height: 40px;
+    background-color: #107c11;
+    border: 1.5px solid #000;
+    border-radius: 4px;
+}
+
+.braço-esquerdo::after, .braço-direito::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: -1px;
+    width: 7px;
+    height: 7px;
+    background-color: #ffdbac;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.braço-esquerdo { left: -7px; transform: rotate(8deg); }
+.braço-direito { right: -7px; transform: rotate(-8deg); }
+
+/* Pernas e Calças Desportivas Pretas */
+.pernas {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 45px;
+    z-index: 2;
+}
+
+.calca {
+    width: 100%;
+    height: 36px;
+    background-color: #252525;
+    border: 1.5px solid #000;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+}
+
+.calca::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5px;
+    height: 22px;
+    background-color: #000;
+}
+
+/* Ténis Brancos com Sola Verde */
+.tenis-esquerdo, .tenis-direito {
+    position: absolute;
+    bottom: 0;
+    width: 14px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1.5px solid #000;
+    border-radius: 5px 5px 2px 2px;
+    border-bottom: 3px solid #107c11;
+}
+.tenis-esquerdo { left: 1px; }
+.tenis-direito { right: 1px; }
+
+/* Janela de Conversação do Chat */
+.chat-window {
+    display: none;
+    position: absolute;
+    bottom: 160px; /* Ajustado para dar espaço ao corpo inteiro */
+    right: 0;
+    width: 300px;
+    background: var(--xbox-light);
+    border: 2px solid var(--xbox-green);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+#xbox-chatbot.open .chat-window {
+    display: block;
+}
+
+.chat-header {
+    background: var(--xbox-green);
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.chat-body {
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.bot-msg {
+    background: #333;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-left: 3px solid var(--xbox-green);
+}
+
+/* Animações (O efeito GIF Animado) */
+@keyframes piscar {
+    0%, 92%, 100% { transform: scaleY(1); }
+    96% { transform: scaleY(0.1); }
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsividade para telemóveis/celulares */
 @media (max-width: 768px) {
     .timeline::before { left: 20px; }
     .era-card { width: 90%; align-self: flex-end !important; margin: 20px 0; }

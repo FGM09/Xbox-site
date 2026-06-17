@@ -108,6 +108,12 @@ function checkFinalAchievement() {
     }
 }
 
+// Controlar Abertura/Fechamento do Chatbot
+function toggleChat() {
+    const chatContainer = document.getElementById('xbox-chatbot');
+    chatContainer.classList.toggle('open');
+}
+
 // Configuração do Disqus (Fórum da Comunidade)
 var disqus_config = function () {
     this.page.url = window.location.href; 

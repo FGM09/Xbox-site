@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Timeline: A Jornada Gamificada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>XBOX HISTORY</h2>
+        <div class="score-board">
+            <span>Score: <g id="gamerscore">0</g> G</span>
+            <span>Eras Exploradas: <g id="eras-count">0</g>/4</span>
+        </div>
+    </header>
+
+    <main class="timeline">
+
+        <section class="era-card" id="era-classic" onclick="exploreEra('classic', 100)">
+            <div class="era-year">2001</div>
+            <h3 class="era-title">O Nascimento do Monstro (Xbox Original)</h3>
+            <p>A Microsoft entra na guerra dos consoles para desafiar a soberania da Sony. Ninguém acreditava que uma empresa de computadores conseguiria.</p>
+            
+            <div class="era-details">
+                <p><strong>Fato Histórico:</strong> Lançado com um processador Intel Pentium III modificado e uma placa de rede integrada, o Xbox pavimentou o caminho para a jogabilidade online com a lendária <strong>Xbox Live</strong> em 2002. Além disso, foi o berço de <em>Halo: Combat Evolved</em>.</p>
+                
+                <div class="quiz-zone">
+                    <p><strong>Desafio:</strong> Qual franquia lendária nasceu junto com o primeiro Xbox?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'classic', 50)">Halo</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'classic', 0)">Gears of War</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'classic', 0)">Forza Motorsport</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="era-card" id="era-360" onclick="exploreEra('360', 100)">
+            <div class="era-year">2005</div>
+            <h3 class="era-title">A Era de Ouro (Xbox 360)</h3>
+            <p>O console que definiu uma geração, popularizou as Conquistas (Achievements) e trouxe o multiplayer online para o grande público.</p>
+            
+            <div class="era-details">
+                <p><strong>Fato Histórico:</strong> O Xbox 360 dominou o mercado ocidental com jogos como <em>Gears of War</em>, <em>Halo 3</em> e a revolução dos indies na Xbox Live Arcade (XBLA). Apesar do infame problema das "3 Luzes Vermelhas da Morte" (3RROD), tornou-se o console mais vendido da marca.</p>
+                
+                <div class="quiz-zone">
+                    <p><strong>Desafio:</strong> Qual era o apelido do erro fatal de hardware que piscava no painel do 360?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, '360', 0)">Tela Azul da Morte</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, '360', 50)">3 Luzes Vermelhas da Morte (3RROD)</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, '360', 0)">Círculo Verde do Destino</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="era-card" id="era-one" onclick="exploreEra('one', 100)">
+            <div class="era-year">2013</div>
+            <h3 class="era-title">O Tropeço e a Redenção (Xbox One)</h3>
+            <p>Um começo difícil focado em TV e mídia, seguido por uma reviravolta histórica comandada por Phil Spencer.</p>
+            
+            <div class="era-details">
+                <p><strong>Fato Histórico:</strong> Após críticas sobre o foco excessivo no Kinect e restrições de jogos usados, a divisão mudou de rumo. Sob nova liderança, o Xbox One focou nos jogadores e deu vida ao maior trunfo atual da marca: o <strong>Xbox Game Pass</strong>.</p>
+                
+                <div class="quiz-zone">
+                    <p><strong>Desafio:</strong> Qual serviço revolucionário do tipo "Netflix dos Jogos" nasceu nesta era?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'one', 0)">Xbox Gold Plus</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'one', 0)">Xbox Cloud Network</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'one', 50)">Xbox Game Pass</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="era-card" id="era-series" onclick="exploreEra('series', 100)">
+            <div class="era-year">2020</div>
+            <h3 class="era-title">Poder e Ecossistema (Series X | S)</h3>
+            <p>A entrada na nova geração focada em velocidade devastadora com o SSD, retrocompatibilidade massiva e jogos em nuvem.</p>
+            
+            <div class="era-details">
+                <p><strong>Fato Histórico:</strong> Com a estratégia dupla do Series X (o console mais poderoso do mundo) e o Series S (custo-benefício digital), aliado à compra de mega estúdios como Bethesda e Activision Blizzard, o Xbox virou um ecossistema que roda no console, PC e celulares via Cloud Gaming.</p>
+                
+                <div class="quiz-zone">
+                    <p><strong>Desafio:</strong> Qual recurso do Series X/S permite alternar entre vários jogos instantaneamente de onde parou?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'series', 50)">Quick Resume</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'series', 0)">Fast Load</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'series', 0)">Smart Delivery</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Seção do Fórum Integrada -->
+    <section id="forum-section">
+        <h2>Comunidade Xbox</h2>
+        <div id="disqus_thread"></div>
+    </section>
+
+    <div class="achievement-toast" id="achievement-toast">
+        <div class="achievement-icon">🏆</div>
+        <div>
+            <div class="achievement-text-1">Conquista Desbloqueada!</div>
+            <div class="achievement-text-2" id="achievement-name">Explorador da História</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

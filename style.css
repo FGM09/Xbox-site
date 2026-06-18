@@ -399,8 +399,54 @@ header {
    SISTEMA DE ADVERTISING (ANÚNCIOS DINÂMICOS)
    ========================================= */
 .ad-footer-container { max-width: 750px; margin: 20px auto; padding: 0 20px; }
-.ad-banner-box { background: linear-gradient(90deg, #111, #1a1a1a, #111); border: 1px solid var(--ui-border); border-radius: 8px; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; position: relative; }
-.ad-tag-indicator { position: absolute; top: -8px; left: 15px; background: #222; border: 1px solid #444; color: #666; font-size: 0.6rem; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+
+/* Adicionado flexbox com gap para dividir a imagem do texto */
+.ad-banner-box { 
+    background: linear-gradient(90deg, #111, #1a1a1a, #111); 
+    border: 1px solid var(--ui-border); 
+    border-radius: 8px; 
+    padding: 14px 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 20px;
+    position: relative; 
+}
+
+.ad-tag-indicator { position: absolute; top: -8px; left: 15px; background: #222; border: 1px solid #444; color: #666; font-size: 0.6rem; padding: 1px 5px; border-radius: 3px; font-weight: 700; z-index: 5; }
+
+/* Estilo do container da Imagem */
+.ad-image-link {
+    display: block;
+    width: 120px;
+    height: 68px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #333;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, border-color 0.2s;
+}
+
+/* Efeito ao passar o mouse na imagem */
+.ad-image-link:hover {
+    transform: scale(1.05);
+    border-color: var(--xbox-light-green);
+    box-shadow: 0 0 10px rgba(23, 224, 23, 0.3);
+}
+
+.ad-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção sem amassar */
+}
+
+/* Container que agrupa os textos */
+.ad-content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .ad-main-text { font-size: 0.85rem; color: #ccc; font-weight: 500; }
 .ad-action-link { color: var(--xbox-light-green); text-decoration: none; font-size: 0.85rem; font-weight: 600; }
 .ad-action-link:hover { text-decoration: underline; }

@@ -526,4 +526,3 @@ header {
     .era-card { width: 90% !important; align-self: flex-start !important; margin: 20px 0 20px 45px !important; }
     .era-card::after { left: -44px !important; right: auto !important; top: 26px !important; }
 }
-

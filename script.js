@@ -138,11 +138,31 @@ const KEYWORDS_DB = [
 
 // BANCO DE DADOS DE ANÚNCIOS DINÂMICOS
 const ADS_DB = [
-    { text: "Assine o XBOX GAME PASS ULTIMATE hoje e jogue títulos no Day One!", link: "#" },
-    { text: "Entre no combate em HALO INFINITE - Multiplayer Gratuito disponível.", link: "#" },
-    { text: "Melhore seus reflexos com o Controle Sem Fio Xbox Elite Série 2.", link: "#" },
-    { text: "Gears of War: E-Day está chegando. Prepare o seu esquadrão COG.", link: "#" },
-    { text: "Xbox Cloud Gaming: Seu console em qualquer tela. Conecte-se já.", link: "#" }
+    { 
+        text: "Assine o XBOX GAME PASS ULTIMATE hoje e jogue títulos no Day One!", 
+        link: "https://www.xbox.com/pt-BR/xbox-game-pass", 
+        img: "https://placehold.co/300x150/107c11/FFF?text=Game+Pass" 
+    },
+    { 
+        text: "Entre no combate em HALO INFINITE - Multiplayer Gratuito disponível.", 
+        link: "https://www.xbox.com/pt-BR/games/halo-infinite", 
+        img: "https://placehold.co/300x150/0b580b/FFF?text=Halo+Infinite" 
+    },
+    { 
+        text: "Melhore seus reflexos com o Controle Sem Fio Xbox Elite Série 2.", 
+        link: "https://www.xbox.com/pt-BR/accessories", 
+        img: "https://placehold.co/300x150/1e1e1e/FFF?text=Controle+Elite" 
+    },
+    { 
+        text: "Gears of War: E-Day está chegando. Prepare o seu esquadrão COG.", 
+        link: "https://www.xbox.com/pt-BR/games/gears-of-war-e-day", 
+        img: "https://placehold.co/300x150/c0392b/FFF?text=Gears+of+War" 
+    },
+    { 
+        text: "Xbox Cloud Gaming: Seu console em qualquer tela. Conecte-se já.", 
+        link: "https://www.xbox.com/pt-BR/play", 
+        img: "https://placehold.co/300x150/17e017/000?text=Cloud+Gaming" 
+    }
 ];
 
 /**
@@ -725,8 +745,17 @@ const GerenciadorAnuncios = {
         container.innerHTML = `
             <div class="ad-banner-box">
                 <span class="ad-tag-indicator">PATROCINADO</span>
-                <p class="ad-main-text">${ad.text}</p>
-                <a href="${ad.link}" class="ad-action-link" onclick="console.log('Ad Click registrado via Engine!')">Ver Detalhes ➔</a>
+                
+                <!-- Imagem Clicável Adicionada -->
+                <a href="${ad.link}" target="_blank" class="ad-image-link" title="Acessar site do Xbox">
+                    <img src="${ad.img}" alt="Propaganda" class="ad-banner-img">
+                </a>
+                
+                <!-- Caixa de texto alinhada -->
+                <div class="ad-content-box">
+                    <p class="ad-main-text">${ad.text}</p>
+                    <a href="${ad.link}" target="_blank" class="ad-action-link" onclick="console.log('Ad Click registrado via Engine!')">Ver Detalhes ➔</a>
+                </div>
             </div>
         `;
     },

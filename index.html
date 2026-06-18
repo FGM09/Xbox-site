@@ -4,139 +4,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xbox Timeline: A Jornada Gamificada</title>
+    <title>Xbox Timeline: A Jornada Gamificada | Edição Premium Ultimate</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Adicionando fontes e ícones extras -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body>
+<body class="theme-dark">
 
-    <header>
-        <h2>XBOX HISTORY</h2>
-        <div class="score-board">
-            <span>Score: <g id="gamerscore">0</g> G</span>
-            <span>Eras Exploradas: <g id="eras-count">0</g>/4</span>
-        </div>
-    </header>
-
-    <main class="timeline">
-
-        <section class="era-card" id="era-classic" onclick="exploreEra('classic', 100)">
-            <div class="era-year">2001</div>
-            <h3 class="era-title">O Nascimento do Monstro (Xbox Original)</h3>
-            <p>A Microsoft entra na guerra dos consoles para desafiar a soberania da Sony. Ninguém acreditava que uma
-                empresa de computadores conseguiria.</p>
-
-            <div class="era-details">
-                <p><strong>Fato Histórico:</strong> Lançado com um processador Intel Pentium III modificado e uma placa
-                    de rede integrada, o Xbox pavimentou o caminho para a jogabilidade online com a lendária
-                    <strong>Xbox Live</strong> em 2002. Além disso, foi o berço de <em>Halo: Combat Evolved</em>.</p>
-
-                <div class="quiz-zone">
-                    <p><strong>Desafio:</strong> Qual franquia lendária nasceu junto com o primeiro Xbox?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'classic', 50)">Halo</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'classic', 0)">Gears of War</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'classic', 0)">Forza
-                            Motorsport</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="era-card" id="era-360" onclick="exploreEra('360', 100)">
-            <div class="era-year">2005</div>
-            <h3 class="era-title">A Era de Ouro (Xbox 360)</h3>
-            <p>O console que definiu uma generation, popularizou as Conquistas (Achievements) e trouxe o multiplayer
-                online para o grande público.</p>
-
-            <div class="era-details">
-                <p><strong>Fato Histórico:</strong> O Xbox 360 dominou o mercado ocidental com jogos como <em>Gears of
-                        War</em>, <em>Halo 3</em> e a revolução dos indies na Xbox Live Arcade (XBLA). Apesar do infame
-                    problema das "3 Luzes Vermelhas da Morte" (3RROD), tornou-se o console mais vendido da marca.</p>
-
-                <div class="quiz-zone">
-                    <p><strong>Desafio:</strong> Qual era o apelido do erro fatal de hardware que piscava no painel do
-                        360?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, '360', 0)">Tela Azul da
-                            Morte</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, '360', 50)">3 Luzes Vermelhas da Morte
-                            (3RROD)</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, '360', 0)">Círculo Verde do
-                            Destino</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="era-card" id="era-one" onclick="exploreEra('one', 100)">
-            <div class="era-year">2013</div>
-            <h3 class="era-title">O Tropeço e a Redenção (Xbox One)</h3>
-            <p>Um começo difícil focado em TV e mídia, seguido por uma reviravolta histórica comandada por Phil Spencer.
-            </p>
-
-            <div class="era-details">
-                <p><strong>Fato Histórico:</strong> Após críticas sobre o foco excessivo no Kinect e restrições de jogos
-                    usados, a divisão mudou de rumo. Sob nova liderança, o Xbox One focou nos jogadores e deu vida ao
-                    maior trunfo atual da marca: o <strong>Xbox Game Pass</strong>.</p>
-
-                <div class="quiz-zone">
-                    <p><strong>Desafio:</strong> Qual serviço revolucionário do tipo "Netflix dos Jogos" nasceu nesta
-                        era?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'one', 0)">Xbox Gold Plus</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'one', 0)">Xbox Cloud
-                            Network</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'one', 50)">Xbox Game Pass</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="era-card" id="era-series" onclick="exploreEra('series', 100)">
-            <div class="era-year">2020</div>
-            <h3 class="era-title">Poder e Ecossistema (Series X | S)</h3>
-            <p>A entrada na nova geração focada em velocidade devastadora com o SSD, retrocompatibilidade massiva e
-                jogos em nuvem.</p>
-
-            <div class="era-details">
-                <p><strong>Fato Histórico:</strong> Com a estratégia dupla do Series X (o console mais poderoso do
-                    mundo) e o Series S (custo-benefício digital), aliado à compra de mega estúdios como Bethesda e
-                    Activision Blizzard, o Xbox virou um ecossistema que roda no console, PC e celulares via Cloud
-                    Gaming.</p>
-
-                <div class="quiz-zone">
-                    <p><strong>Desafio:</strong> Qual recurso do Series X/S permite alternar entre vários jogos
-                        instantaneamente de onde parou?</p>
-                    <div class="quiz-options">
-                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'series', 50)">Quick Resume</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'series', 0)">Fast Load</button>
-                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'series', 0)">Smart Delivery</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <section id="forum-section">
-        <h2>Comunidade Xbox</h2>
-        <div id="disqus_thread"></div>
-    </section>
-
-    <div class="achievement-toast" id="achievement-toast">
-        <div class="achievement-icon">🏆</div>
-        <div>
-            <div class="achievement-text-1">Conquista Desbloqueada!</div>
-            <div class="achievement-text-2" id="achievement-name">Explorador da História</div>
+    <!-- OVERLAY DE CARREGAMENTO INICIAL -->
+    <div id="boot-screen">
+        <div class="boot-logo">✖</div>
+        <div class="boot-text">Iniciando Sistema Xbox...</div>
+        <div class="boot-progress-bar">
+            <div class="boot-progress"></div>
         </div>
     </div>
 
+    <!-- TELA DE LOGIN AVANÇADA -->
+    <div id="login-overlay">
+        <div class="login-glass-box">
+            <div class="xbox-logo-login">✖</div>
+            <h2>Conecte-se à Base de Dados</h2>
+            <p>Sincronize seu perfil Spartan para acessar os registros históricos confidenciais.</p>
+            <form id="login-form" onsubmit="fazerLogin(event)">
+                <div class="input-group">
+                    <input type="text" id="gamertag" placeholder="Digite sua Gamertag (Ex: MasterChief117)..." required
+                        autocomplete="off" maxlength="15">
+                    <span class="input-icon">🎮</span>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="passkey" placeholder="Senha de Acesso (Opcional)" autocomplete="off">
+                </div>
+                <button type="submit" id="btn-login" class="btn-login">
+                    <span class="btn-text">Autenticar Sistema</span>
+                    <div class="loader-spinner"></div>
+                </button>
+            </form>
+            <div id="login-status" class="login-status">Aguardando credenciais seguras...</div>
+            <div class="login-footer">
+                <a href="#" onclick="alert('Recuperação de ID não disponível no modo offline.')">Esqueceu sua
+                    Gamertag?</a>
+            </div>
+        </div>
+        <div class="ambient-glow"></div>
+        <!-- Partículas de fundo para a tela de login -->
+        <div id="particles-js"></div>
+    </div>
+
+    <!-- NAVEGAÇÃO LATERAL (NOVO) -->
+    <nav class="side-nav">
+        <ul>
+            <li class="nav-item active" title="Linha do Tempo"><a href="#timeline">⏳</a></li>
+            <li class="nav-item" title="Hub da Comunidade"><a href="#forum-section">💬</a></li>
+            <li class="nav-item" title="Galeria de Conquistas"><a href="#"
+                    onclick="abrirModal('modal-conquistas')">🏆</a></li>
+            <li class="nav-item" title="Configurações"><a href="#" onclick="abrirModal('modal-config')">⚙️</a></li>
+        </ul>
+    </nav>
+
+    <!-- CABEÇALHO COM SISTEMA DE RANKS -->
+    <header>
+        <div class="header-brand">
+            <div class="xbox-logo-mini">✖</div>
+            <h2>XBOX HISTORY <span class="version-tag">v3.0</span></h2>
+        </div>
+        <div class="score-board">
+            <div class="score-item user-profile" onclick="abrirModal('modal-perfil')">
+                <div class="avatar-mini"></div>
+                <span id="display-gamertag">Guest</span>
+                <span id="user-rank" class="rank-badge init">Recruta</span>
+            </div>
+            <div class="score-item" title="Gamerscore Total">
+                Score: <span class="highlight">
+                    <g id="gamerscore">0</g> G
+                </span>
+            </div>
+            <div class="score-item" title="Eras Analisadas">
+                Eras: <span class="highlight">
+                    <g id="eras-count">0</g>/8
+                </span>
+            </div>
+            <div class="score-item progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="level-progress"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LINHA DO TEMPO PRINCIPAL (EXPANDIDA) -->
+    <main class="timeline" id="timeline">
+        <div class="timeline-intro">
+            <h1>Os Arquivos Secretos</h1>
+            <p>Role para baixo para descriptografar as eras de hardware da Microsoft.</p>
+        </div>
+
+        <!-- ERA 1: PROTÓTIPO -->
+        <section class="era-card" id="era-proto" onclick="exploreEra('proto', 50)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">1999</div>
+                <h3 class="era-title">DirectX Box (O Protótipo)</h3>
+                <p>A equipe do DirectX propõe um console para competir com o PlayStation 2, utilizando peças de PC.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #000:</strong> O primeiro protótipo físico era literalmente um 'X' gigante de
+                            alumínio usinado.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-proto"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 2: CLASSIC -->
+        <section class="era-card" id="era-classic" onclick="exploreEra('classic', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2001</div>
+                <h3 class="era-title">O Nascimento do Monstro (Original)</h3>
+                <p>A entrada avassaladora da Microsoft no mercado de hardware, apostando em banda larga.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #001:</strong> Lançado com um processador Intel Pentium III, mudando para
+                            sempre o multiplayer.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-classic"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 3: XBOX LIVE -->
+        <section class="era-card" id="era-live" onclick="exploreEra('live', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2002</div>
+                <h3 class="era-title">A Revolução Conectada (Xbox Live)</h3>
+                <p>O lançamento da rede que definiu os padrões modernos de jogo online, matchmaking e voz.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #002:</strong> O kit inicial exigia banda larga, uma jogada arriscada que se
+                            provou visionária.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-live"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 4: 360 -->
+        <section class="era-card" id="era-360" onclick="exploreEra('360', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2005</div>
+                <h3 class="era-title">A Era Dourada (Xbox 360)</h3>
+                <p>O console que definiu o padrão da 7ª geração, popularizando as Conquistas.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #003:</strong> Consolidou o mercado de jogos independentes com a Xbox Live
+                            Arcade (XBLA).</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-360"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 5: KINECT -->
+        <section class="era-card" id="era-kinect" onclick="exploreEra('kinect', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2010</div>
+                <h3 class="era-title">Você é o Controle (Kinect)</h3>
+                <p>A revolução de captura de movimentos e o periférico mais vendido da história na época.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #004:</strong> Utilizava câmeras RGB, sensores de profundidade infravermelho
+                            e microfones em matriz.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-kinect"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 6: ONE -->
+        <section class="era-card" id="era-one" onclick="exploreEra('one', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2013</div>
+                <h3 class="era-title">O Ponto de Virada (Xbox One)</h3>
+                <p>Um lançamento conturbado que precisou se reinventar sob a liderança de Phil Spencer.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #005:</strong> Trouxe a retrocompatibilidade e assentou as bases para o Game
+                            Pass.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-one"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 7: GAME PASS -->
+        <section class="era-card" id="era-gamepass" onclick="exploreEra('gamepass', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2017</div>
+                <h3 class="era-title">A Netflix dos Games (Game Pass)</h3>
+                <p>A maior mudança no modelo de negócios de games, oferecendo uma biblioteca por assinatura.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #006:</strong> Mudou a forma como consumimos e descobrimos novos jogos indies
+                            e AAAs.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-gamepass"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ERA 8: SERIES -->
+        <section class="era-card" id="era-series" onclick="exploreEra('series', 100)">
+            <div class="era-glow"></div>
+            <div class="era-content">
+                <div class="era-year">2020</div>
+                <h3 class="era-title">Poder & Ecossistema (Series X|S)</h3>
+                <p>Hardware de altíssima performance aliado à flexibilidade do Cloud Gaming.</p>
+                <div class="era-details">
+                    <div class="fact-box">
+                        <p><strong>Arquivo #007:</strong> Xbox Velocity Architecture praticamente eliminou os tempos de
+                            carregamento tradicionais.</p>
+                    </div>
+                    <div class="quiz-zone" id="quiz-series"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="timeline-end-marker">Fim dos Registros Classificados</div>
+    </main>
+
+    <!-- FÓRUM DA COMUNIDADE -->
+    <section id="forum-section">
+        <div class="forum-header">
+            <h2>Hub da Comunidade Spartan</h2>
+            <p>Central de transmissões seguras. Compartilhe suas campanhas.</p>
+        </div>
+        <div class="forum-stats">
+            <div class="stat-box">Total de Transmissões: <span id="total-posts-count">0</span></div>
+            <div class="stat-box">Status do Servidor: <span style="color:var(--xbox-light-green)">Online</span></div>
+        </div>
+        <div class="forum-form-container">
+            <form id="forum-post-form" onsubmit="criarPublicacao(event)">
+                <textarea id="forum-message-input" placeholder="Inicie sua transmissão de áudio/texto aqui..."
+                    required></textarea>
+                <div class="forum-toolbar">
+                    <button type="button" class="toolbar-btn" onclick="inserirTag('[SPOILER]')">🤫 Spoiler</button>
+                    <button type="button" class="toolbar-btn" onclick="inserirTag('[LFG]')">🤝 Procurar Grupo</button>
+                    <button type="button" class="toolbar-btn" onclick="inserirTag('[HELP]')">🆘 Ajuda</button>
+                </div>
+                <div class="forum-form-footer">
+                    <span class="posting-as">Protocolo atual: <strong id="forum-current-user">Guest</strong></span>
+                    <button type="submit" class="btn-forum-submit">Transmitir Sinal</button>
+                </div>
+            </form>
+        </div>
+        <div id="forum-posts-wrapper"></div>
+    </section>
+
+    <!-- CONTAINER DE PROPAGANDAS ROTATIVAS -->
+    <div class="ad-footer-container" id="ad-system-container"></div>
+
+    <!-- MODAIS DO SISTEMA -->
+    <div class="modal-overlay" id="modal-conquistas">
+        <div class="modal-box modal-large">
+            <div class="modal-header">
+                <h3>🏆 Cofre de Conquistas</h3>
+                <button class="close-modal" onclick="fecharModal('modal-conquistas')">✖</button>
+            </div>
+            <div class="modal-body">
+                <div class="achievements-grid" id="achievements-grid">
+                    <!-- Gerado via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-config">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>⚙️ Configurações do Sistema</h3>
+                <button class="close-modal" onclick="fecharModal('modal-config')">✖</button>
+            </div>
+            <div class="modal-body">
+                <div class="config-option">
+                    <label>Efeitos Sonoros UI</label>
+                    <label class="switch"><input type="checkbox" id="toggle-sfx" checked><span
+                            class="slider"></span></label>
+                </div>
+                <div class="config-option">
+                    <label>Modo de Baixo Desempenho (Desativar Animações)</label>
+                    <label class="switch"><input type="checkbox" id="toggle-animations"><span
+                            class="slider"></span></label>
+                </div>
+                <div class="config-option">
+                    <label>IA Avançada (Requer Chave de API Externa)</label>
+                    <label class="switch"><input type="checkbox" id="toggle-ai"><span class="slider"></span></label>
+                </div>
+                <button class="btn-login" style="margin-top:20px;" onclick="limparDados()">Resetar Todo o
+                    Progresso</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST DE CONQUISTAS -->
+    <div class="achievement-toast" id="achievement-toast">
+        <div class="achievement-icon">
+            <div class="trophy-inner">🏆</div>
+        </div>
+        <div class="achievement-body">
+            <div class="achievement-text-1">Conquista Desbloqueada</div>
+            <div class="achievement-text-2" id="achievement-name">Mestre da Linha do Tempo</div>
+            <div class="achievement-score" id="achievement-score-val">+10G</div>
+        </div>
+    </div>
+
+    <!-- CHATBOT AVANÇADO -->
     <div id="xbox-chatbot">
-        <div class="chat-launcher" onclick="toggleChat()">
+        <div class="chat-launcher" onclick="toggleChat()" title="Falar com Assistente Cortana/IA">
             <div class="avatar-mii full-body">
+                <!-- Estrutura Mii mantida (vide CSS/JS original) -->
                 <div class="cabeca">
-                    <div class="cabelo"></div>
                     <div class="olhos">
                         <div class="olho-esquerdo"></div>
                         <div class="olho-direito"></div>
@@ -147,8 +341,6 @@
                     <div class="camisa">
                         <div class="logo-xbox-camisa"></div>
                     </div>
-                    <div class="braço-esquerdo"></div>
-                    <div class="braço-direito"></div>
                 </div>
                 <div class="pernas">
                     <div class="calca"></div>
@@ -156,17 +348,36 @@
                     <div class="tenis-direito"></div>
                 </div>
             </div>
+            <div class="chat-badge" id="chat-badge">1</div>
         </div>
-        <div class="chat-window">
+        <div class="chat-window" id="chat-window-ui">
             <div class="chat-header">
-                <span>Avatar Assistente Xbox</span>
-                <button onclick="toggleChat()">❌</button>
+                <div class="chat-header-info">
+                    <div class="status-dot"></div><span>Cortana Assistente IA</span>
+                </div>
+                <button onclick="toggleChat()" class="close-chat-btn">✖</button>
             </div>
-            <div class="chat-body">
-                <p class="bot-msg">Olá, Conquistador! Sou o teu Avatar do Xbox. Explora a Timeline, responde aos desafios para acumular Gamerscore e deixa o teu comentário no fórum!</p>
+            <div class="chat-body" id="chat-messages">
+                <div class="msg-container bot slide-in">
+                    <div class="msg-bubble bot-msg">Chief? Sou eu. Sincronização estabelecida. O que precisa saber sobre
+                        o banco de dados?</div>
+                </div>
+            </div>
+            <div class="typing-indicator" id="typing-indicator"><span></span><span></span><span></span></div>
+            <div class="chat-footer">
+                <input type="text" id="chat-input" placeholder="Digite seu comando..." onkeydown="verificarEnter(event)"
+                    autocomplete="off">
+                <button class="send-btn" onclick="enviarMensagem()">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
+
+    <!-- AUDIO CONTROLLER (MOCK) -->
+    <audio id="sfx-achievement" src="https://www.myinstants.com/media/sounds/xbox-360-achievement.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
